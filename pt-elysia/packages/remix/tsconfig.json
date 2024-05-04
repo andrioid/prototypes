@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "target": "ES2022",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"],
+      "@eventpuffin/server": ["../server/index.ts"],
+      "@api/type": ["../server/index.ts"]
+    },
+    "noEmit": true,
+  },
+  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
+  //"references": [{ "path": "../server" }]
+  
+}
