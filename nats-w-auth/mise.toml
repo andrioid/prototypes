@@ -1,0 +1,2 @@
+[tools]
+"ubi:nats-io/natscli" = { version = "v0.2.3", matching = "zip", exe = "nats" }
