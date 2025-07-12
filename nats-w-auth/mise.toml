@@ -1,2 +1,15 @@
 [tools]
 "ubi:nats-io/natscli" = { version = "v0.2.3", matching = "zip", exe = "nats" }
+watchexec = "latest"
+go = "latest"
+
+[env]
+_.file = '.env'
+
+[tasks."dev:go"]
+sources = ["**/*.go", "**/*.gohtml"]
+run = "go run ."
+
+
+[tasks.dev]
+run = ["mise watch -r dev:*"]
