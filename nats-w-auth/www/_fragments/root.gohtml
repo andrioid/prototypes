@@ -1,0 +1,20 @@
+{{define "root"}}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prototype</title>
+    <link href="//styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <!-- Our content will go here. -->
+      {{template "yield" .}}
+    </div>
+
+  </body>
+</html>
+
+{{end}}

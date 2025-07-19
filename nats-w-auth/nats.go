@@ -9,21 +9,22 @@ import (
 )
 
 func setupNats() {
+	var err error
 	opts := server.Options{
 		JetStream: true,
 		StoreDir:  "./data",
 	}
-	ns, err := server.NewServer(&opts)
+	natsd, err = server.NewServer(&opts)
 	if err != nil {
 		panic(err)
 	}
-	go ns.Start()
+	go natsd.Start()
 
-	if !ns.ReadyForConnections(4 * time.Second) {
+	if !natsd.ReadyForConnections(4 * time.Second) {
 		panic("not ready for connection")
 	}
 
-	nc, err := nats.Connect(ns.ClientURL())
+	nc, err := nats.Connect(natsd.ClientURL())
 
 	if err != nil {
 		panic(err)
@@ -31,6 +32,7 @@ func setupNats() {
 
 	subject := "my-subject"
 
+	// TODO: Clean this up when we got this nats stuff working
 	nc.Subscribe(subject, func(msg *nats.Msg) {
 		data := string(msg.Data)
 		fmt.Println("From subscription:", data)

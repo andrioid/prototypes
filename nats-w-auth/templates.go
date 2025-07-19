@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func LoadTemplates(fsys fs.FS) (*template.Template, error) {
+// TODO: Make this recursive
+func loadTemplates(fsys fs.FS) (*template.Template, error) {
 	root := template.New("")
 
 	err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
